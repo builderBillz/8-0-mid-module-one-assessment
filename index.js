@@ -33,9 +33,14 @@ const animals = [
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
 function getTotalCount(animals) {
+  
+  //established my initial value of 0 since my return should be a number
   let total = 0
+  //defined my loop
   for(let animal of animals){
-    let animalCount = animal.count 
+    // made a variable for count 
+    let animalCount = animal.count
+    // adding the current value of animals[i].count to total and reassigning the value of total   
     total += animalCount
   }
   return total
@@ -54,9 +59,13 @@ function getTotalCount(animals) {
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
 function getAllKinds(animals) {
+  //established my initial value of [] since my return should be an array
   let allKinds = []
+  //defined my loop
   for(let animal of animals){
+    //  made a variable for kind
     let animalKind = animal.kind
+    // pushing the current value of animals[i].kind into allKinds array 
     allKinds.push(animalKind)
   }
 
@@ -81,13 +90,15 @@ function getAllKinds(animals) {
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
 function filterByCountMinimum(animals, minimum) {
+  //established my initial value of [] since my return should be an array
   let minimumAnimals = []
-  
+  //defined my loop
   for(let animal of animals){
-    
+    // made a variable for count  
     let animalCount = animal.count 
-    
+    // If the current value of animals[0].count is greater than or equal to the minimum   
     if(animalCount >= minimum)
+    // push the current value of animals[i] into minimumAnimals array
     minimumAnimals.push(animal)
 
   }
@@ -107,7 +118,27 @@ function filterByCountMinimum(animals, minimum) {
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {
+ function getMostCommonAnimal(animals) {
+  // if the length of animals array is 0 
+  if (animals.length === 0){
+    // return null 
+    return null
+    } 
+  // established variable for initial value but this time it is an animal[0] which is an object like out return value will be but we need this value to hold if our condition is not met later on 
+  let  mostCommonAnimal = animals[0]
+  //defined my loop
+  for(let animal of animals){
+    //established a variable for the current value of animals[0].count 
+    let animalCount = animal.count
+    //establish a variable for the current highest count value
+    let currentHighCount = mostCommonAnimal.count  
+    // if the current value of animals[0].count is higher than the currentHighCount value 
+    if (animalCount > currentHighCount){
+      // Our return Object will be the current value of animals[i]
+      mostCommonAnimal = animal
+    }
+  }
+  return mostCommonAnimal
 }
 
 // Do not change anything below this line.
