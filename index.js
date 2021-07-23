@@ -14,6 +14,12 @@ const animals = [
   { kind: "Cat", count: 2 },
 ];
 
+
+// ACCUMULATION STEPS:
+// 1. Determine your output data type and default value.
+// 2. Define your loop.
+// 3. Accumulate!
+
 /**
  * FUNCTION DESCRIPTION
  * ------------------
@@ -26,7 +32,14 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
+function getTotalCount(animals) {
+  let total = 0
+  for(let animal of animals){
+    let animalCount = animal.count 
+    total += animalCount
+  }
+  return total
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -60,6 +73,7 @@ function getAllKinds(animals) {}
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
 function filterByCountMinimum(animals, minimum) {}
+  
 
 /**
  * FUNCTION DESCRIPTION
